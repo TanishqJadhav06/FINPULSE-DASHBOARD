@@ -1,54 +1,55 @@
 import requests
-
 import json
-
 import sys
-
 import emoji
-
 import yfinance as yf
-
 import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+COMMODITY_API_KEY = os.getenv("COMMODITY_API_KEY")
+ALPHAVANTAGE_API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
+NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
 
 response = requests.get(
     "https://api.commoditypriceapi.com/v2/rates/latest",
     params={"symbols": "xau,xag,wtioil-fut"},
-    headers={"x-api-key": "572d1cae-cd24-4b3f-b2f5-68a626018afd"},
+    headers={"x-api-key": COMMODITY_API_KEY},
 )
 
 response2 = requests.get(
-        "https://www.alphavantage.co/query?function=NATURAL_GAS&interval=monthly&apikey=HTQRWVS672646MI7"
-    )
+    f"https://www.alphavantage.co/query?function=NATURAL_GAS&interval=monthly&apikey={ALPHAVANTAGE_API_KEY}"
+)
 
 response3 = requests.get(
-        "https://www.alphavantage.co/query?function=CORN&interval=monthly&apikey=HTQRWVS672646MI7"
-    )
+    f"https://www.alphavantage.co/query?function=CORN&interval=monthly&apikey={ALPHAVANTAGE_API_KEY}"
+)
 
 response4 = requests.get(
-        "https://www.alphavantage.co/query?function=WHEAT&interval=monthly&apikey=HTQRWVS672646MI7"
-    )
+    f"https://www.alphavantage.co/query?function=WHEAT&interval=monthly&apikey={ALPHAVANTAGE_API_KEY}"
+)
 
-currency_response=requests.get("https://api.frankfurter.dev/v1/latest?from=USD"
-    )
+currency_response = requests.get("https://api.frankfurter.dev/v1/latest?from=USD")
 
-response_news= requests.get(f"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=4b407a5e42bb45cdb888d271d184d90f"
-    )
+response_news = requests.get(
+    f"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey={NEWSAPI_KEY}"
+)
 
 indices = {
     "NIFTY50": "^NSEI", "NASDAQ": "^IXIC", "S&P500": "^GSPC",
-    "DOWJONES": "^DJI","BANKNIFTY":"^NSEBANK","SENSEX":"^BSESN",
+    "DOWJONES": "^DJI", "BANKNIFTY": "^NSEBANK", "SENSEX": "^BSESN",
 }
 
-yesterday=datetime.datetime.now().date()-datetime.timedelta(days=1)
-    # this api consists (format YYYY-MM-DD)
+yesterday = datetime.datetime.now().date() - datetime.timedelta(days=1)
+# this api consists (format YYYY-MM-DD)
 response_lol = requests.get(
     "https://api.commoditypriceapi.com/v2/rates/historical",
-    params={f"symbols": "xau,xag,wtioil-fut", "date": {yesterday}},
-    headers={"x-api-key": "572d1cae-cd24-4b3f-b2f5-68a626018afd"},
+    params={"symbols": "xau,xag,wtioil-fut", "date": str(yesterday)},
+    headers={"x-api-key": COMMODITY_API_KEY},
 )
 
-date=datetime.datetime.now().date()-datetime.timedelta(days=2)
-    # this api consists (format YYYY-MM-DD)
-response_tell=requests.get(f"https://api.frankfurter.dev/v1/{date}?from=USD"
-    )
-
+date = datetime.datetime.now().date() - datetime.timedelta(days=2)
+# this api consists (format YYYY-MM-DD)
+response_tell = requests.get(f"https://api.frankfurter.dev/v1/{date}?from=USD")
