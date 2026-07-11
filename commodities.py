@@ -26,7 +26,7 @@ def commodity():
     data=resonpse_oil.json()
     latest = data["data"][0]
     print(f"🔥 Natural Gas          {latest["value"]:.2f}     {naturalgas_pct:.2f}%")
-'''
+
     corn = response3.json()
     latest = list(corn["data"])[0]
     print(f"🌽 Corn (USD/ton)       {float(latest['value']):.2f}")
@@ -35,5 +35,5 @@ def commodity():
     Wheat = response4.json()
     latest = list(Wheat["data"])[0]
     print(f"🌾 Wheat (USD/ton)      {(float(latest['value'])):.2f}\n")
-'''
+
 commodity()
