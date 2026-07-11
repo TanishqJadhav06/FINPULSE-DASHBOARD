@@ -12,6 +12,7 @@ load_dotenv()
 COMMODITY_API_KEY = os.getenv("COMMODITY_API_KEY")
 ALPHAVANTAGE_API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
+API_TOKEN=os.getenv("API_TOKEN")
 
 response = requests.get(
     "https://api.commoditypriceapi.com/v2/rates/latest",
@@ -19,9 +20,10 @@ response = requests.get(
     headers={"x-api-key": COMMODITY_API_KEY},
 )
 
-response2 = requests.get(
-    f"https://www.alphavantage.co/query?function=NATURAL_GAS&interval=monthly&apikey={ALPHAVANTAGE_API_KEY}"
+
+resonpse_oil=requests.get(f"https://eodhd.com/api/commodities/historical/NATURAL_GAS?api_token={API_TOKEN}&interval=daily&fmt=json"
 )
+
 
 response3 = requests.get(
     f"https://www.alphavantage.co/query?function=CORN&interval=monthly&apikey={ALPHAVANTAGE_API_KEY}"
@@ -52,4 +54,10 @@ response_lol = requests.get(
 
 date = datetime.datetime.now().date() - datetime.timedelta(days=2)
 # this api consists (format YYYY-MM-DD)
-response_tell = requests.get(f"https://api.frankfurter.dev/v1/{date}?from=USD")
+response_tell = requests.get(f"https://api.frankfurter.dev/v1/{date}?from=USD"
+)
+
+
+
+
+

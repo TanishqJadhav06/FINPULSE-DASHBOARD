@@ -1,12 +1,12 @@
 from config import response
-from config import response2
+from config import resonpse_oil
 from config import response3
 from config import response4
 
 from values import gold_pct
 from values import silver_pct
 from values import oil_pct
-
+from values import naturalgas_pct
 
 
 def commodity():
@@ -23,11 +23,10 @@ def commodity():
     print(f"🛢️  Crude Oil (WTI)      {commodities["rates"]["WTIOIL-FUT"]}     {oil_pct:.2f}%")
 
 
-    Naturalgas = response2.json()
-    latest = list(Naturalgas["data"])[0]
-    print(f"🔥 Natural Gas          {float(latest["value"]):.2f}")
-
-
+    data=resonpse_oil.json()
+    latest = data["data"][0]
+    print(f"🔥 Natural Gas          {latest["value"]:.2f}     {naturalgas_pct:.2f}%")
+'''
     corn = response3.json()
     latest = list(corn["data"])[0]
     print(f"🌽 Corn (USD/ton)       {float(latest['value']):.2f}")
@@ -36,5 +35,5 @@ def commodity():
     Wheat = response4.json()
     latest = list(Wheat["data"])[0]
     print(f"🌾 Wheat (USD/ton)      {(float(latest['value'])):.2f}\n")
-
+'''
 commodity()
