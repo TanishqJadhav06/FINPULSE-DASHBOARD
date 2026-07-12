@@ -4,7 +4,6 @@ from config import response_lol
 
 from config import resonpse_oil
 
-from new import changes
 
 change=response_lol.json()
 today=response.json()
@@ -21,3 +20,4 @@ second_latest = data["data"][1]
 
 naturalgas_pct=((latest["value"] - float(second_latest["value"])) /float(second_latest["value"]))*100
 
+print(gold_pct)

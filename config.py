@@ -39,6 +39,11 @@ response_news = requests.get(
     f"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey={NEWSAPI_KEY}"
 )
 
+indices = {
+    "NIFTY50": "^NSEI", "NASDAQ": "^IXIC", "S&P500": "^GSPC",
+    "DOWJONES": "^DJI","BANKNIFTY":"^NSEBANK","SENSEX":"^BSESN",
+}
+
 yesterday = datetime.datetime.now().date() - datetime.timedelta(days=1)
 # this api consists (format YYYY-MM-DD)
 response_lol = requests.get(
