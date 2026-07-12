@@ -8,9 +8,9 @@ from markets import market
 from news import news
 
 
-print(commodity)
-print(currency)
-print(market)
-print(news)
+commodity()
+currency()
+market()
+news()
 
 

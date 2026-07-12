@@ -19,5 +19,3 @@ latest = data["data"][0]
 second_latest = data["data"][1]
 
 naturalgas_pct=((latest["value"] - float(second_latest["value"])) /float(second_latest["value"]))*100
-
-print(gold_pct)
