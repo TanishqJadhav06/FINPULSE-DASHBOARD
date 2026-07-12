@@ -4,6 +4,7 @@ from config import response_lol
 
 from config import resonpse_oil
 
+from new import changes
 
 change=response_lol.json()
 today=response.json()
