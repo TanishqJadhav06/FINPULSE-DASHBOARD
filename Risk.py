@@ -168,7 +168,7 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
         
-    confidence=(float(score)/38)*100
+    confidence=(abs(score)/38)*100
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
