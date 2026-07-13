@@ -173,7 +173,7 @@ def risk():
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
     
-    print("Reasons\n---------------------")
+    print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
     print(f"Raw Score : {score} / 38")
