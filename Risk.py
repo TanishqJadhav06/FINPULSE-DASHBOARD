@@ -143,22 +143,42 @@ def risk():
     #========================================CNY====================================================================================#
 
     if CNY_pct >1.5:
-        score+=-3*3
+        score+=-3*1
         reasons.append("🔴 Stronger USD reflects global demand for safety.")
     elif CNY_pct>-0.5 and CNY_pct <=0.5:
-        score+=0*3
+        score+=0*0.5
         reasons.append("⚪ USD is stable.")
     elif CNY_pct <=-1.5:
-        score+=3*3
+        score+=3*1
         reasons.append("🟢 Investors are moving away from defensive Dollar positions.")
 
+    #========================================CNY====================================================================================#
+        
+    MarketMood=[]
 
+    if score>=30:
+        MarketMood.append("🟢 Strong Risk ON")
+    elif score>=10:
+        MarketMood.append("🟢 Risk ON")
+    elif score>-10:
+        MarketMood.append("⚪ Neutral")
+    elif score>-30:
+        MarketMood.append("🔴 Risk OFF")
+    else:
+        MarketMood.append("🔴 Strong Risk OFF")
+
+        
+    confidence=(float(score)/38)*100
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
     
-    print("Reasons\n----------")
-    print(f"Score:{score}")
+    print("Reasons\n---------------------")
+    for market in MarketMood:
+        print(f"Market Mood : {market}")
+    print(f"Raw Score : {score}/38")
+    print(f"Confidence : {confidence:.2f}\n")
+
     for reason in reasons:
         print(f"{reason}")
 
