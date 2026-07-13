@@ -176,7 +176,7 @@ def risk():
     print("Reasons\n---------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score}/38")
+    print(f"Raw Score : {score} / 38")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
