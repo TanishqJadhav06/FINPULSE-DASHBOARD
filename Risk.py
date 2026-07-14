@@ -10,12 +10,7 @@ from percentage import GBP_pct
 from percentage import CNY_pct
 from percentage import AUD_pct
 
-from markets import nifty_pct
-from markets import nasdaq_pct
-from markets import sp500_pct
-from markets import dowj_pct
-from markets import banknifty_pct
-from markets import sensex_pct
+import markets
 def risk():
     score=0
 
@@ -149,46 +144,46 @@ def risk():
 
     if CNY_pct >1.5:
         score+=-3*1
-        reasons.append("🔴 Stronger USD reflects global demand for safety.")
+        reasons.append("🔴 Stronger CNY reflects global demand.")
     elif CNY_pct>-0.5 and CNY_pct <=0.5:
         score+=0*0.5
-        reasons.append("⚪ USD is stable.")
+        reasons.append("⚪ CNY is stable.")
     elif CNY_pct <=-1.5:
         score+=3*1
-        reasons.append("🟢 Investors are moving away from defensive Dollar positions.")
+        reasons.append("🟢 Investors are moving away from CNY positions.")
 
 #========================================markets====================================================================================#
-    if nifty_pct >1.5:
+    if markets.nifty_pct >1.5:
         score+=-3*4
         reasons.append("🟢 NIFTY is rallying strongly. Broad market sentiment is firmly Risk ON.")
-    elif nifty_pct>0.5 and nifty_pct<=1.5:
+    elif markets.nifty_pct>0.5 and markets.nifty_pct<=1.5:
         score+=-2*4
         reasons.append("🟢 NIFTY supports a positive market environment.")
-    elif nifty_pct>-0.5 and nifty_pct<=0.5:
+    elif markets.nifty_pct>-0.5 and markets.nifty_pct<=0.5:
         score+=0*4
         reasons.append("⚪ NIFTY is trading sideways. No clear market direction.")
-    elif nifty_pct >=-1.5 and nifty_pct <-0.5:
+    elif markets.nifty_pct >=-1.5 and markets.nifty_pct <-0.5:
         score+=2*4
         reasons.append("🔴 NIFTY reflects increasing market caution.")
-    elif nifty_pct<-1.5:
+    elif markets.nifty_pct<-1.5:
         score+=3*4
         reasons.append("🔴 NIFTY is selling off sharply. Strong Risk OFF sentiment.")
 
 #========================================markets====================================================================================#
 
-    if nasdaq_pct >1.5:
+    if markets.nasdaq_pct >1.5:
         score+=-3*2
         reasons.append("🟢 Technology stocks are leading market gains.")
-    elif nasdaq_pct>0.5 and nasdaq_pct<=1.5:
+    elif markets.nasdaq_pct>0.5 and markets.nasdaq_pct<=1.5:
         score+=-2*2
         reasons.append("🟢 Tech sector supports market optimism.")
-    elif nasdaq_pct>-0.5 and nasdaq_pct<=0.5:
+    elif markets.nasdaq_pct>-0.5 and markets.nasdaq_pct<=0.5:
         score+=0*2
         reasons.append("⚪ Technology sector is stable.")
-    elif nasdaq_pct >=-1.5 and nasdaq_pct <-0.5:
+    elif markets.nasdaq_pct >=-1.5 and markets.nasdaq_pct <-0.5:
         score+=2*2
         reasons.append("🔴 Technology stocks show increasing caution.")
-    elif nasdaq_pct<-1.5:
+    elif markets.nasdaq_pct<-1.5:
         score+=3*2
         reasons.append("🔴 Heavy selling in technology signals Risk OFF.")
 
@@ -196,19 +191,19 @@ def risk():
 #========================================markets====================================================================================#
 
 
-    if sp500_pct >1.5:
+    if markets.sp500_pct >1.5:
         score+=-3*4
         reasons.append("🟢 S&P 500 reflects strong global Risk ON sentiment.")
-    elif sp500_pct>0.5 and sp500_pct<=1.5:
+    elif markets.sp500_pct>0.5 and markets.sp500_pct<=1.5:
         score+=-2*4
         reasons.append("🟢 Global equities remain supportive.")
-    elif sp500_pct>-0.5 and sp500_pct<=0.5:
+    elif markets.sp500_pct>-0.5 and markets.sp500_pct<=0.5:
         score+=0*4
         reasons.append("⚪ S&P 500 is relatively unchanged.")
-    elif sp500_pct>=-1.5 and sp500_pct<-0.5:
+    elif markets.sp500_pct>=-1.5 and markets.sp500_pct<-0.5:
         score+=2*4
         reasons.append("🔴 Global investors are becoming more defensive.")
-    elif sp500_pct<-1.5:
+    elif markets.sp500_pct<-1.5:
         score+=3*4
         reasons.append("🔴 Global markets are under heavy selling pressure.")
 
@@ -216,55 +211,55 @@ def risk():
 #========================================markets====================================================================================#
 
 
-    if sensex_pct >1.5:
+    if markets.sensex_pct >1.5:
         score+=-3*3
         reasons.append("🟢 SENSEX confirms strong investor confidence.")
-    elif sensex_pct>0.5 and sensex_pct<=1.5:
+    elif markets.sensex_pct>0.5 and markets.sensex_pct<=1.5:
         score+=-2*3
         reasons.append("🟢 SENSEX supports a healthy equity market.")
-    elif sensex_pct>-0.5 and sensex_pct<=0.5:
+    elif markets.sensex_pct>-0.5 and markets.sensex_pct<=0.5:
         score+=0*3
         reasons.append("⚪ SENSEX is stable today.")
-    elif sensex_pct>=-1.5 and sensex_pct<-0.5:
+    elif markets.sensex_pct>=-1.5 and markets.sensex_pct<-0.5:
         score+=2*3
         reasons.append("🔴 SENSEX reflects cautious investor sentiment.")
-    elif sensex_pct<-1.5:
+    elif markets.sensex_pct<-1.5:
         score+=3*3
         reasons.append("🔴 SENSEX indicates broad market weakness.")
 
 #========================================markets====================================================================================#
    
-    if banknifty_pct >1.5:
+    if markets.banknifty_pct >1.5:
         score+=-3*3
         reasons.append("🟢 Banking stocks are strengthening. Financial sector supports Risk ON.")
-    elif banknifty_pct>0.5 and banknifty_pct<=1.5:
+    elif markets.banknifty_pct>0.5 and markets.banknifty_pct<=1.5:
         score+=-2*3
         reasons.append("🟢 Banks are contributing positively to market momentum.")
-    elif banknifty_pct>-0.5 and banknifty_pct<=0.5:
+    elif markets.banknifty_pct>-0.5 and markets.banknifty_pct<=0.5:
         score+=0*3
         reasons.append("⚪ Banking sector is stable.")
-    elif banknifty_pct>=-1.5 and banknifty_pct<-0.5:
+    elif markets.banknifty_pct>=-1.5 and  markets.banknifty_pct<-0.5:
         score+=2*3
         reasons.append("🔴 Banking sector shows signs of caution.")
-    elif banknifty_pct<-1.5:
+    elif markets.banknifty_pct<-1.5:
         score+=3*3
         reasons.append("🔴 Banks are under heavy selling pressure. Risk appetite is weakening.")
 
 #========================================markets====================================================================================#
    
-    if dowj_pct>1.5:
+    if markets.dowj_pct>1.5:
         score+=-3*2
         reasons.append("🟢 Industrial stocks support economic confidence.")
-    elif dowj_pct>0.5 and dowj_pct<=1.5:
+    elif markets.dowj_pct>0.5 and markets.dowj_pct<=1.5:
         score+=-2*2
         reasons.append("🟢 Industrial sector remains positive.")
-    elif dowj_pct>-0.5 and dowj_pct<=0.5:
+    elif markets.dowj_pct>-0.5 and markets.dowj_pct<=0.5:
         score+=0*2
         reasons.append("⚪ Industrial stocks are stable.")
-    elif dowj_pct>=-1.5 and dowj_pct<-0.5:
+    elif markets.dowj_pct>=-1.5 and markets.dowj_pct<-0.5:
         score+=2*2
         reasons.append("🔴 Industrial sector reflects growing caution.")
-    elif dowj_pct<-1.5:
+    elif markets.dowj_pct<-1.5:
         score+=3*2
         reasons.append("🔴 Industrial weakness supports Risk OFF sentiment.")
 
@@ -299,4 +294,5 @@ def risk():
     for reason in reasons:
         print(f"{reason}")
 
-risk()
+if __name__=="__main__":
+    risk()

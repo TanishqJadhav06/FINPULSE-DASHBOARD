@@ -20,5 +20,6 @@ def currency():
     print(f"CNY/INR    {currency["rates"]["INR"]/(float(currency["rates"]["CNY"])):.2f}     {CNY_pct:.2f}%")
     print(f"AUD/INR    {currency["rates"]["INR"]/(float(currency["rates"]["AUD"])):.2f}     {AUD_pct:.2f}%\n")
     print(f"Last Updated🕒: {currency["date"]}\n")
-
-currency()
+    
+if __name__=="__main__":
+    currency()

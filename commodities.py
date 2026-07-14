@@ -36,4 +36,5 @@ def commodity():
     latest = list(Wheat["data"])[0]
     print(f"🌾 Wheat (USD/ton)      {(float(latest['value'])):.2f}\n")
 
-commodity()
+if __name__=="__main__":
+    commodity()

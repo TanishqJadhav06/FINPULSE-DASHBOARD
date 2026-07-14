@@ -1,5 +1,11 @@
 import yfinance as yf
 
+nifty_pct=0
+nasdaq_pct=0
+sp500_pct=0
+dowj_pct=0
+banknifty_pct=0
+sensex_pct=0
 
 def market():
     global nifty_pct
@@ -59,5 +65,5 @@ def market():
         sensex_pct=((sensexprice-sensexprev)/sensexprev)*100
         print(f"{name}     {sensexprice:.2f}  {sensex_pct:+.2f}%")
 
-
-market()
+if __name__=="__main__":
+    market()

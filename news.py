@@ -9,5 +9,5 @@ def news():
         print(f"\n{article["title"]}")
         print(article["description"])
         print("---------")
-
-news()
+if __name__=="__main__":
+    news()
