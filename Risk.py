@@ -251,7 +251,7 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
         
-    confidence=round((abs(score)/93)*100,1)
+    confidence=round((abs(score)/81)*100,1)
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
@@ -259,7 +259,7 @@ def risk():
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 93")
+    print(f"Raw Score : {score} / 81")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
