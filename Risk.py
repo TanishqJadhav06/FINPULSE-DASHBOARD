@@ -17,19 +17,19 @@ def risk():
     reasons=[]
 #========================================GOLD====================================================================================#
     if gold_pct>1.5:
-        score+=-3*3
+        score+=-3*4
         reasons.append("🔴 Gold strongly supports Risk OFF. Strong flight to safety suggests elevated market fear.")
     elif gold_pct >0.5 and gold_pct <=1.5:
-        score+=-2*3
+        score+=-2*4
         reasons.append("🔴 Gold supports Risk OFF. Investors are showing increased demand for safe-haven assets.")
     elif gold_pct >-0.5 and gold_pct <=0.5:
-        score+=0*3
+        score+=0*4
         reasons.append("⚪ Gold is neutral. No meaningful safe-haven signal today.")
     elif gold_pct >-1.5 and gold_pct <=-0.5:
-        score+=2*3
+        score+=2*4
         reasons.append("🟢 Gold supports Risk ON. Investors are gradually moving away from defensive assets")
     elif gold_pct<-1.5:
-        score+=3*3 
+        score+=3*4
         reasons.append("🟢 Gold strongly supports Risk ON. Safe-haven demand is falling, indicating strong investor confidence.")
     else:
         print("Error getting value form gold")
@@ -75,25 +75,25 @@ def risk():
         print("Error getting value form oil")
 
 #========================================naturalgas====================================================================================#
-
-    if naturalgas_pct>1.5:
-        score+=-1*3
-        reasons.append("🔴 Natural gas prices suggest rising energy costs.")
-    elif naturalgas_pct >0.5 and naturalgas_pct <=1.5:
-        score+=-1*3
-        reasons.append("🔴 Gas prices remain inflationary.")
-    elif naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
-        score+=0*3
-        reasons.append("⚪ Natural gas is stable.")
-    elif naturalgas_pct >-1.5 and naturalgas_pct <=-0.5:
-        score+=1*3
-        reasons.append("🟢 Lower gas prices reduce energy cost pressure.")
-    elif naturalgas_pct<=-1.5:
-        score+=1*3
-        reasons.append("🟢 Falling gas supports improving inflation expectations.")
-    else:
-        print("Error getting value form Natural Gas")
-
+    '''
+        if naturalgas_pct>1.5:
+            score+=-1*3
+            reasons.append("🔴 Natural gas prices suggest rising energy costs.")
+        elif naturalgas_pct >0.5 and naturalgas_pct <=1.5:
+            score+=-1*3
+            reasons.append("🔴 Gas prices remain inflationary.")
+        elif naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
+            score+=0*3
+            reasons.append("⚪ Natural gas is stable.")
+        elif naturalgas_pct >-1.5 and naturalgas_pct <=-0.5:
+            score+=1*3
+            reasons.append("🟢 Lower gas prices reduce energy cost pressure.")
+        elif naturalgas_pct<=-1.5:
+            score+=1*3
+            reasons.append("🟢 Falling gas supports improving inflation expectations.")
+        else:
+            print("Error getting value form Natural Gas")
+    '''
 #========================================USD====================================================================================#
 
     if USD_pct >1.5:
@@ -251,7 +251,7 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
         
-    confidence=round((abs(score)/81)*100,1)
+    confidence=round((abs(score)/85)*100,1)
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
@@ -259,7 +259,7 @@ def risk():
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 81")
+    print(f"Raw Score : {score} / 85")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
