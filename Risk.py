@@ -76,22 +76,22 @@ def risk():
     
 #========================================naturalgas====================================================================================#
     
-        if naturalgas_pct>1.5:
+    if naturalgas_pct>1.5:
             score+=-1*3
             reasons.append("🔴 Natural gas prices suggest rising energy costs.")
-        elif naturalgas_pct >0.5 and naturalgas_pct <=1.5:
+    elif naturalgas_pct >0.5 and naturalgas_pct <=1.5:
             score+=-1*3
             reasons.append("🔴 Gas prices remain inflationary.")
-        elif naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
+    elif naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
             score+=0*3
             reasons.append("⚪ Natural gas is stable.")
-        elif naturalgas_pct >-1.5 and naturalgas_pct <=-0.5:
+    elif naturalgas_pct >-1.5 and naturalgas_pct <=-0.5:
             score+=1*3
             reasons.append("🟢 Lower gas prices reduce energy cost pressure.")
-        elif naturalgas_pct<=-1.5:
+    elif naturalgas_pct<=-1.5:
             score+=1*3
             reasons.append("🟢 Falling gas supports improving inflation expectations.")
-        else:
+    else:
             print("Error getting value form Natural Gas")
     
 #========================================USD====================================================================================#
