@@ -254,7 +254,7 @@ def risk():
         
     confidence=round((abs(score)/69)*100,1)
     print("===============================================================")
-    print("📊 FINPULSE MACRO SIGNAL (RISK)")
+    print("📊 TODAY'S MARKET SIGNAL")
     print("===============================================================")
     
     print("Reasons\n------------------------")

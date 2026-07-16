@@ -8,7 +8,6 @@ from values import silver_pct
 from values import oil_pct
 from values import naturalgas_pct
 
-
 def commodity():
     print("\t  🛢️ 1. COMMODITIES")
     print("----------------------------------------")

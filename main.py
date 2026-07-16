@@ -9,7 +9,9 @@ from news import news
 
 from Risk import risk
 
+from time import time
 
+time()
 commodity()
 currency()
 market()
