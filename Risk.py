@@ -55,7 +55,7 @@ def risk():
         print("Error getting value form silver")
 
 #========================================OIL====================================================================================#
-
+    '''
     if oil_pct>1.5:
         score+=-2*3
         reasons.append("🔴 Rising oil prices increase inflation concerns.")
@@ -73,7 +73,7 @@ def risk():
         reasons.append("🟢 Falling oil supports Risk ON through lower inflation.")
     else:
         print("Error getting value form oil")
-
+    '''
 #========================================naturalgas====================================================================================#
     '''
         if naturalgas_pct>1.5:
@@ -130,7 +130,7 @@ def risk():
         reasons.append("🟢 Investors are rotating into risk assets.")
 
 #========================================EURO====================================================================================#
-
+    '''
     if EUR_pct >1.5:
         score+=-3*1
         reasons.append("🔴 Euro reflects cautious investor positioning.")
@@ -140,6 +140,7 @@ def risk():
     elif EUR_pct <=-1.5:
         score+=3*1
         reasons.append("🟢 Euro supports improving market sentiment.")
+    '''
 #========================================CNY====================================================================================#
 #========================================markets====================================================================================#
     if markets.nifty_pct >1.5:
@@ -217,7 +218,7 @@ def risk():
             reasons.append("🔴 SENSEX indicates broad market weakness.")
     '''
 #========================================markets====================================================================================#
-   
+    '''
     if markets.banknifty_pct >1.5:
         score+=-3*3
         reasons.append("🟢 Banking stocks are strengthening. Financial sector supports Risk ON.")
@@ -233,7 +234,7 @@ def risk():
     elif markets.banknifty_pct<-1.5:
         score+=3*3
         reasons.append("🔴 Banks are under heavy selling pressure. Risk appetite is weakening.")
-
+    '''
 #========================================markets====================================================================================#
    
 #========================================markets====================================================================================#    
@@ -251,7 +252,7 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
         
-    confidence=round((abs(score)/85)*100,1)
+    confidence=round((abs(score)/60)*100,1)
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
@@ -259,7 +260,7 @@ def risk():
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 85")
+    print(f"Raw Score : {score} / 60")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
