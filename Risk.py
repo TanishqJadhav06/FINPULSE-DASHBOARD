@@ -55,7 +55,7 @@ def risk():
         print("Error getting value form silver")
 
 #========================================OIL====================================================================================#
-    '''
+    
     if oil_pct>1.5:
         score+=-2*3
         reasons.append("🔴 Rising oil prices increase inflation concerns.")
@@ -73,9 +73,9 @@ def risk():
         reasons.append("🟢 Falling oil supports Risk ON through lower inflation.")
     else:
         print("Error getting value form oil")
-    '''
+    
 #========================================naturalgas====================================================================================#
-    '''
+    
         if naturalgas_pct>1.5:
             score+=-1*3
             reasons.append("🔴 Natural gas prices suggest rising energy costs.")
@@ -93,7 +93,7 @@ def risk():
             reasons.append("🟢 Falling gas supports improving inflation expectations.")
         else:
             print("Error getting value form Natural Gas")
-    '''
+    
 #========================================USD====================================================================================#
 
     if USD_pct >1.5:
@@ -240,19 +240,19 @@ def risk():
 #========================================markets====================================================================================#    
     MarketMood=[]
 
-    if score<=-60:
+    if score<=-40:
         MarketMood.append("🟢 Strong Risk ON")
-    elif score<=-25:
+    elif score<=-15:
         MarketMood.append("🟢 Risk ON")
-    elif score<25:
+    elif score<15:
         MarketMood.append("⚪ Neutral")
-    elif score<60:
+    elif score<40:
         MarketMood.append("🔴 Risk OFF")
     else:
         MarketMood.append("🔴 Strong Risk OFF")
 
         
-    confidence=round((abs(score)/60)*100,1)
+    confidence=round((abs(score)/69)*100,1)
     print("===============================================================")
     print("📊 FINPULSE MACRO SIGNAL (RISK)")
     print("===============================================================")
@@ -260,7 +260,7 @@ def risk():
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 60")
+    print(f"Raw Score : {score} / 69")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
