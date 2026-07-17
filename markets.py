@@ -7,6 +7,8 @@ dowj_pct=0
 banknifty_pct=0
 sensex_pct=0
 
+from rich.console import Console
+console=Console()
 def market():
     global nifty_pct
     global nasdaq_pct
@@ -16,7 +18,7 @@ def market():
     global sensex_pct
     
 
-    print("📊 3. Global MARKETS")
+    console.print("📊 3. Global MARKETS",style="yellow")
     print("--------------------------")
     print("Index\t   Value     Change")
     print("--------------------------")

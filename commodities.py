@@ -8,8 +8,10 @@ from values import silver_pct
 from values import oil_pct
 from values import naturalgas_pct
 
+from rich.console import Console
+console=Console()
 def commodity():
-    print("\t  🛢️ 1. COMMODITIES")
+    console.print("\t  🛢️ 1. COMMODITIES",style="yellow")
     print("----------------------------------------")
     commodities=response.json()
 

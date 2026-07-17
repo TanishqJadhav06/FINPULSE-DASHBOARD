@@ -6,8 +6,11 @@ from percentage import JPY_pct
 from percentage import GBP_pct
 from percentage import CNY_pct
 from percentage import AUD_pct
+
+from rich.console import Console
+console=Console()
 def currency():
-    print("🌐 2. GLOBAL CURRENCIES (vs INR)")
+    console.print("🌐 2. GLOBAL CURRENCIES (vs INR)",style="bold green")
     print("---------------------------")
     currency=currency_response.json()
 
