@@ -1,5 +1,5 @@
 from config import response
-from config import resonpse_oil
+from config import resonpse_gas
 from config import response3
 from config import response4
 
@@ -7,11 +7,8 @@ from values import gold_pct
 from values import silver_pct
 from values import oil_pct
 from values import naturalgas_pct
-
-from rich.console import Console
-console=Console()
 def commodity():
-    console.print("\t  🛢️ 1. COMMODITIES",style="yellow")
+    print("\t  🛢️ 1. COMMODITIES")
     print("----------------------------------------")
     commodities=response.json()
 
@@ -24,7 +21,7 @@ def commodity():
     print(f"🛢️  Crude Oil (WTI)      {commodities["rates"]["WTIOIL-FUT"]}     {oil_pct:.2f}%")
 
 
-    data=resonpse_oil.json()
+    data=resonpse_gas.json()
     latest = data["data"][0]
     print(f"🔥 Natural Gas          {latest["value"]:.2f}     {naturalgas_pct:.2f}%")
 

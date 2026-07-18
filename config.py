@@ -20,7 +20,7 @@ response = requests.get(
 )
 
 # This api gets price of NATURAL GAS (natgas)
-resonpse_oil=requests.get(f"https://eodhd.com/api/commodities/historical/NATURAL_GAS?api_token={API_TOKEN}&interval=daily&fmt=json"
+resonpse_gas=requests.get(f"https://eodhd.com/api/commodities/historical/NATURAL_GAS?api_token={API_TOKEN}&interval=daily&fmt=json"
 )
 
 # This api gets price of CORN.

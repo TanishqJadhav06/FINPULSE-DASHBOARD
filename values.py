@@ -2,7 +2,7 @@
 from config import response
 from config import response_lol
 
-from config import resonpse_oil
+from config import resonpse_gas
 
 
 change=response_lol.json()
@@ -14,7 +14,7 @@ oil_pct = ((today["rates"]["WTIOIL-FUT"] - float(change["rates"]["WTIOIL-FUT"]["
 
 
 
-data=resonpse_oil.json()
+data=resonpse_gas.json()
 latest = data["data"][0]
 second_latest = data["data"][1]
 
