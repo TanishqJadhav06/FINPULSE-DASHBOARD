@@ -24,5 +24,4 @@ def time():
     # %I = 12-hour hour, %M = minute, %p = AM/PM
     time_12h = now.strftime("%I:%M %p")
     console.print(f"🕓 {time_12h} IST\n",style="bold purple")
-
 time()

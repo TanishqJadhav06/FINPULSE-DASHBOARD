@@ -1,3 +1,4 @@
+from timedate import time
 
 from commodities import commodity
 
@@ -9,9 +10,7 @@ from news import news
 
 from Risk import risk
 
-from time import time
 
-time()
 commodity()
 currency()
 market()
