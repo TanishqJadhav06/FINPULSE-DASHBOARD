@@ -19,12 +19,13 @@ def market():
 
     from rich.console import Console
     from rich.table import Table
+    from rich import box
     console=Console()
-    table=Table(title="📊 3. Global MARKETS")
-    print("--------------------------")
+    table=Table(title="📊 3. Global MARKETS",box=box.DOUBLE_EDGE,border_style="bright_blue")
+
     table.add_column("Index",style="bold cyan")
-    table.add_column("Value",style="bold white")
-    table.add_column("Change",style="bold green")
+    table.add_column("Value",style="bold white",justify="right")
+    table.add_column("Change",style="bold green",justify="right")
 
     for name, symbol in {"NIFTY50": "^NSEI"}.items():
         t = yf.Ticker(symbol)
