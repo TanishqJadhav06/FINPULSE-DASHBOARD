@@ -251,10 +251,14 @@ def risk():
     else:
         MarketMood.append("🔴 Strong Risk OFF")
 
-        
+    from rich.console import Console
+    from rich.table import Table
+    console=Console()
+    table=Table()
+
     confidence=round((abs(score)/69)*100,1)
     print("===============================================================")
-    print("📊 TODAY'S MARKET SIGNAL")
+    table.add_column("📊 TODAY'S MARKET SIGNAL")
     print("===============================================================")
     
     print("Reasons\n------------------------")
