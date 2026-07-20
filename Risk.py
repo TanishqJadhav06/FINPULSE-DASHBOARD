@@ -15,6 +15,7 @@ def risk():
     score=0
 
     reasons=[]
+
 #========================================GOLD====================================================================================#
     if gold_pct>1.5:
         score+=-3*4
@@ -75,7 +76,7 @@ def risk():
         print("Error getting value form oil")
     
 #========================================naturalgas====================================================================================#
-    
+    '''
     if naturalgas_pct>1.5:
             score+=-1*3
             reasons.append("🔴 Natural gas prices suggest rising energy costs.")
@@ -93,7 +94,7 @@ def risk():
             reasons.append("🟢 Falling gas supports improving inflation expectations.")
     else:
             print("Error getting value form Natural Gas")
-    
+    '''
 #========================================USD====================================================================================#
 
     if USD_pct >1.5:
@@ -251,20 +252,15 @@ def risk():
     else:
         MarketMood.append("🔴 Strong Risk OFF")
 
-    from rich.console import Console
-    from rich.table import Table
-    console=Console()
-    table=Table()
-
-    confidence=round((abs(score)/69)*100,1)
+    confidence=round((abs(score)/66)*100,1)
     print("===============================================================")
-    table.add_column("📊 TODAY'S MARKET SIGNAL")
+    print("📊 TODAY'S MARKET SIGNAL")
     print("===============================================================")
     
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 69")
+    print(f"Raw Score : {score} / 66")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
