@@ -27,7 +27,6 @@ def commodity():
     oil_pctn=(f"{oil_pct:.2f}%")
     naturalgas_pctn=(f"{naturalgas_pct:.2f}%")
 
-    from time import time
     from rich.console import Console
     from rich.table import Table
 
