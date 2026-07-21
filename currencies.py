@@ -35,8 +35,8 @@ def currency():
     console=Console()
 
     table.add_column("Pair",style="bold cyan",)
-    table.add_column("Price (INR)",style=" bold white")
-    table.add_column("Change",style=" bold green")
+    table.add_column("Price (INR)",style=" bold white",justify="right")
+    table.add_column("Change",style=" bold green",justify="right")
     table.add_row("$💵  USD/INR",usdrate,USD_pctn)
     table.add_row("€💶  EUR/INR",Eurorate,EUR_pctn)
     table.add_row("Ұ💴  JPY/INR",JPYrate,JPY_pctn)

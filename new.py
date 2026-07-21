@@ -1,8 +1,13 @@
-from values import gold_pct
-from values import silver_pct
-from values import oil_pct
-from values import naturalgas_pct
+from rich.table import Table
+from rich.console import Console
 
-gold_pct=(f"{gold_pct:.2f}%")
+table=Table()
+console=Console()
 
-print(gold_pct)
+console.print("Indian markets",justify="left")
+table.add_column("Index")
+table.add_column("Value")
+table.add_column("Change")
+table.add_row("maximus","19836","1.9%")
+
+console.print(table)
