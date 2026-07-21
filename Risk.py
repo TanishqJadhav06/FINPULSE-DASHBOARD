@@ -18,60 +18,60 @@ def risk():
 
 #========================================GOLD====================================================================================#
     if gold_pct>1.5:
-        score+=-3*4
-        reasons.append("🔴 Gold strongly supports Risk OFF. Strong flight to safety suggests elevated market fear.")
+        score+=3*4*-1
+        reasons.append("🔴 Gold is surging — strong safe-haven demand as fear grips markets")
     elif gold_pct >0.5 and gold_pct <=1.5:
-        score+=-2*4
-        reasons.append("🔴 Gold supports Risk OFF. Investors are showing increased demand for safe-haven assets.")
+        score+=2*4*-1
+        reasons.append("🔴 Gold is climbing — investors turning cautious")
     elif gold_pct >-0.5 and gold_pct <=0.5:
         score+=0*4
-        reasons.append("⚪ Gold is neutral. No meaningful safe-haven signal today.")
+        reasons.append("⚪ Gold is flat — no clear safe-haven signal today")
     elif gold_pct >-1.5 and gold_pct <=-0.5:
-        score+=2*4
-        reasons.append("🟢 Gold supports Risk ON. Investors are gradually moving away from defensive assets")
+        score+=-2*4*-1
+        reasons.append("🟢 Gold is easing — investors growing more confident")
     elif gold_pct<-1.5:
-        score+=3*4
-        reasons.append("🟢 Gold strongly supports Risk ON. Safe-haven demand is falling, indicating strong investor confidence.")
+        score+=-3*4*-1
+        reasons.append("🟢 Gold is falling sharply — strong risk appetite, fear has faded")
     else:
         print("Error getting value form gold")
 
 #========================================silver====================================================================================#
 
     if silver_pct>1.5:
-        score+=-3*1
-        reasons.append("🔴 Silver rises sharply, supporting a defensive market tone.")
+        score+=3*1*1
+        reasons.append("🔴 Silver is spiking — safe-haven demand spilling into silver too")
     elif silver_pct >0.5 and silver_pct <=1.5:
-        score+=-2*1
-        reasons.append("🔴 Silver is up moderately, showing mild defensive positioning..")
+        score+=2*1*-1
+        reasons.append("🔴 Silver is up — modest defensive buying")
     elif silver_pct >-0.5 and silver_pct <=0.5:
-        score+=0*1
-        reasons.append("⚪ Silver is neutral today.")
+        score+=0*1*-1
+        reasons.append("⚪ Silver is flat — no strong signal")
     elif silver_pct >-1.5 and silver_pct <=-0.5:
-        score+=2*1
-        reasons.append("🟢 Silver drops mildly, reflecting lower safe-haven demand.")
+        score+=-2*1*-1
+        reasons.append("🟢 Silver is slipping — risk appetite improving")
     elif silver_pct<-1.5:
-        score+=3*1
-        reasons.append("🟢 Silver drops sharply, supporting broader economic optimism.")
+        score+=-3*1*-1
+        reasons.append("🟢 Silver is falling sharply — confidence firmly back in risk assets")
     else:
         print("Error getting value form silver")
 
 #========================================OIL====================================================================================#
     
     if oil_pct>1.5:
-        score+=-2*3
-        reasons.append("🔴 Rising oil prices increase inflation concerns.")
+        score+=3*3*-1
+        reasons.append("🔴 Rising oil prices increases inflation concerns.")
     elif oil_pct >0.5 and oil_pct <=1.5:
-        score+=-1*3
-        reasons.append("🔴 Oil is slightly inflationary.")
+        score+=2*3*-1
+        reasons.append("🔴 Oil is climbing — mild inflation and cost-push pressure building")
     elif oil_pct >-0.5 and oil_pct <=0.5:
-        score+=0*3
-        reasons.append("⚪ Oil is stable today.")
+        score+=0*3*-1
+        reasons.append("⚪ Oil is stable — no inflation signal from energy today")
     elif oil_pct >-1.5 and oil_pct <=-0.5:
-        score+=1*3
-        reasons.append("🟢 Lower oil eases inflation pressure.")
+        score+=-2*3*-1
+        reasons.append("🟢 Oil is easing — inflation pressure cooling off")
     elif oil_pct<-1.5:
-        score+=2*3
-        reasons.append("🟢 Falling oil supports Risk ON through lower inflation.")
+        score+=-3*3*-1
+        reasons.append("🟢 Oil is falling sharply — inflation risk easing, positive for rate outlook")
     else:
         print("Error getting value form oil")
     
@@ -98,36 +98,36 @@ def risk():
 #========================================USD====================================================================================#
 
     if USD_pct >1.5:
-        score+=-3*3
+        score+=3*3*-1
         reasons.append("🔴 Stronger USD reflects global demand for safety.")
     elif USD_pct>0.5 and USD_pct <=1.5:
-        score+=-2*3
-        reasons.append("🔴 USD supports Risk OFF.")
+        score+=2*3*-1
+        reasons.append("🔴 Dollar is strengthening — pressure building on risk assets")
     elif USD_pct>-0.5 and USD_pct <=0.5:
-        score+=0*3
-        reasons.append("⚪ USD is stable.")
+        score+=0*3*-1
+        reasons.append("⚪ Dollar is steady — no major currency signal today")
     elif USD_pct>-1.5 and  USD_pct <=-0.5:
-        score+=2*3
-        reasons.append("🟢 Weaker USD supports Risk ON.")
+        score+=-2*3*-1
+        reasons.append("🟢 Dollar is weakening — easier global liquidity")
     elif USD_pct <=-1.5:
-        score+=3*3
-        reasons.append("🟢 Investors are moving away from defensive Dollar positions.")
+        score+=-3*3*-1
+        reasons.append("🟢 Dollar is falling sharply — strong risk-on tailwind from a weaker dollar")
 #========================================YEN====================================================================================#
 
     if JPY_pct >1.5:
-        score+=-3*2
+        score+=3*2*-1
         reasons.append("🔴 Investors are buying the Japanese Yen for safety.")
     elif JPY_pct>0.5 and JPY_pct <=1.5:
-        score+=-2*2
+        score+=2*2*-1
         reasons.append("🔴 Yen supports Risk OFF.")
     elif JPY_pct>-0.5 and JPY_pct <=0.5:
-        score+=0*2
+        score+=0*2*-1
         reasons.append("⚪ Yen is stable.")
-    elif JPY_pct>-1.5 and  JPY_pct <=-0.5:
-        score+=2*2
+    elif JPY_pct>-1.5 and JPY_pct <=-0.5:
+        score+=-2*2*-1
         reasons.append("🟢 Yen weakness supports Risk ON.")
     elif JPY_pct <=-1.5:
-        score+=3*2
+        score+=-3*2*-1
         reasons.append("🟢 Investors are rotating into risk assets.")
 
 #========================================EURO====================================================================================#
@@ -145,58 +145,58 @@ def risk():
 #========================================CNY====================================================================================#
 #========================================markets====================================================================================#
     if markets.nifty_pct >1.5:
-        score+=-3*4
-        reasons.append("🟢 NIFTY is rallying strongly. Broad market sentiment is firmly Risk ON.")
+        score+=3*4*1
+        reasons.append("🟢 NIFTY is surging — strong bullish momentum in Indian equities")
     elif markets.nifty_pct>0.5 and markets.nifty_pct<=1.5:
-        score+=-2*4
-        reasons.append("🟢 NIFTY supports a positive market environment.")
+        score+=2*4*1
+        reasons.append("🟢 NIFTY is climbing — positive momentum building")
     elif markets.nifty_pct>-0.5 and markets.nifty_pct<=0.5:
-        score+=0*4
-        reasons.append("⚪ NIFTY is trading sideways. No clear market direction.")
+        score+=0*4*1
+        reasons.append("⚪ NIFTY is flat — no clear direction in Indian markets")
     elif markets.nifty_pct >=-1.5 and markets.nifty_pct <-0.5:
-        score+=2*4
-        reasons.append("🔴 NIFTY reflects increasing market caution.")
+        score+=-2*4*1
+        reasons.append("🔴 NIFTY is slipping — selling pressure building")
     elif markets.nifty_pct<-1.5:
-        score+=3*4
-        reasons.append("🔴 NIFTY is selling off sharply. Strong Risk OFF sentiment.")
+        score+=-3*4*1
+        reasons.append("🔴 NIFTY is falling sharply — strong bearish pressure on Indian equities")
 
 #========================================markets====================================================================================#
 
     if markets.nasdaq_pct >1.5:
-        score+=-3*2
+        score+=3*2*1
         reasons.append("🟢 Technology stocks are leading market gains.")
     elif markets.nasdaq_pct>0.5 and markets.nasdaq_pct<=1.5:
-        score+=-2*2
+        score+=2*2*1
         reasons.append("🟢 Tech sector supports market optimism.")
     elif markets.nasdaq_pct>-0.5 and markets.nasdaq_pct<=0.5:
-        score+=0*2
+        score+=0*2*1
         reasons.append("⚪ Technology sector is stable.")
     elif markets.nasdaq_pct >=-1.5 and markets.nasdaq_pct <-0.5:
-        score+=2*2
+        score+=-2*2*1
         reasons.append("🔴 Technology stocks show increasing caution.")
     elif markets.nasdaq_pct<-1.5:
-        score+=3*2
-        reasons.append("🔴 Heavy selling in technology signals Risk OFF.")
+        score+=-3*2*1
+        reasons.append("🔴 Heavy selling in technology.")
 
 
 #========================================markets====================================================================================#
 
 
     if markets.sp500_pct >1.5:
-        score+=-3*4
-        reasons.append("🟢 S&P 500 reflects strong global Risk ON sentiment.")
+        score+=3*4*1
+        reasons.append("🟢 S&P 500 is surging — broad-based rally across US equities")
     elif markets.sp500_pct>0.5 and markets.sp500_pct<=1.5:
-        score+=-2*4
-        reasons.append("🟢 Global equities remain supportive.")
+        score+=2*4*1
+        reasons.append("🟢 S&P 500 is climbing — steady gains across the board")
     elif markets.sp500_pct>-0.5 and markets.sp500_pct<=0.5:
-        score+=0*4
-        reasons.append("⚪ S&P 500 is relatively unchanged.")
+        score+=0*4*1
+        reasons.append("⚪ S&P 500 is flat — US markets directionless today")
     elif markets.sp500_pct>=-1.5 and markets.sp500_pct<-0.5:
-        score+=2*4
-        reasons.append("🔴 Global investors are becoming more defensive.")
+        score+=-2*4*1
+        reasons.append("🔴 S&P 500 is slipping — broad market softness")
     elif markets.sp500_pct<-1.5:
-        score+=3*4
-        reasons.append("🔴 Global markets are under heavy selling pressure.")
+        score+=-3*4*1
+        reasons.append("🔴 S&P 500 is falling sharply — broad-based sell-off in US equities")
 
 
 #========================================markets====================================================================================#
@@ -241,18 +241,18 @@ def risk():
 #========================================markets====================================================================================#    
     MarketMood=[]
 
-    if score<=-40:
+    if score>=+50:
         MarketMood.append("🟢 Strong Risk ON")
-    elif score<=-15:
+    elif score<=20 and score<=+50:
         MarketMood.append("🟢 Risk ON")
-    elif score<15:
+    elif score>-20 and score<20:
         MarketMood.append("⚪ Neutral")
-    elif score<40:
+    elif score>-50 and score<-20 :
         MarketMood.append("🔴 Risk OFF")
-    else:
+    elif score<=-50:
         MarketMood.append("🔴 Strong Risk OFF")
 
-    confidence=round((abs(score)/66)*100,1)
+    confidence=round((abs(score)/69)*100,1)
     print("===============================================================")
     print("📊 TODAY'S MARKET SIGNAL")
     print("===============================================================")
@@ -260,7 +260,7 @@ def risk():
     print("Reasons\n------------------------")
     for market in MarketMood:
         print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 66")
+    print(f"Raw Score : {score} / 69")
     print(f"Confidence : {confidence:.2f}\n")
 
     for reason in reasons:
