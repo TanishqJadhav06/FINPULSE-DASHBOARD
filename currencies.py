@@ -11,12 +11,12 @@ from percentage import AUD_pct
 def currency():
     currency=currency_response.json()
 
-    USD_pctn=str(f"{USD_pct:.2f}%")
-    EUR_pctn=str(f"{EUR_pct:.2f}%")
-    JPY_pctn=str(f"{JPY_pct:.2f}%")
-    GBP_pctn=str(f"{GBP_pct:.2f}%")
-    CNY_pctn=str(f"{CNY_pct:.2f}%")
-    AUD_pctn=str(f"{AUD_pct:.2f}%")
+    USD_pctn=str(f"{USD_pct:+.2f}%")
+    EUR_pctn=str(f"{EUR_pct:+.2f}%")
+    JPY_pctn=str(f"{JPY_pct:+.2f}%")
+    GBP_pctn=str(f"{GBP_pct:+.2f}%")
+    CNY_pctn=str(f"{CNY_pct:+.2f}%")
+    AUD_pctn=str(f"{AUD_pct:+.2f}%")
 
 
     usdrate=str(f"{(currency["rates"]["INR"]):.2f}")

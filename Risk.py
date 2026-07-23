@@ -254,14 +254,6 @@ def risk():
 
     confidence=round((abs(score)/69)*100,1)
 
-    from rich.table import Table
-    from rich.console import Console
-    from rich.box import Box
-    from rich.panel import Panel
-    consle=Console()
-    table=Table()
-    box=Box()
-
     print("===============================================================")
     print("📊 TODAY'S MARKET SIGNAL")
     print("===============================================================")

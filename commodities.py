@@ -22,10 +22,10 @@ def commodity():
     latestcorn = list(corn["data"])[0]
 
 
-    gold_pctn=(f"{gold_pct:.2f}%")
-    silver_pctn=(f"{silver_pct:.2f}%")
-    oil_pctn=(f"{oil_pct:.2f}%")
-    naturalgas_pctn=(f"{naturalgas_pct:.2f}%")
+    gold_pctn=(f"{gold_pct:+.2f}%")
+    silver_pctn=(f"{silver_pct:+.2f}%")
+    oil_pctn=(f"{oil_pct:+.2f}%")
+    naturalgas_pctn=(f"{naturalgas_pct:+.2f}%")
 
     from rich.console import Console
     from rich.table import Table
@@ -34,20 +34,20 @@ def commodity():
     console=Console()
 
     table.add_column("Asset Price",justify="left",style="cyan")
-    table.add_column("Price (USD)",style="white")
-    table.add_column("Change",style="green")
+    table.add_column("Price (USD)",style="white",justify="right")
+    table.add_column("Change",style="green",justify="right")
 
-    table.add_row("🥇 Gold (XAU/USD)",str(commodities["rates"]["XAU"]),gold_pctn)
+    table.add_row("🥇 Gold (XAU/USD)",f"{(commodities["rates"]["XAU"]):,.2f}",gold_pctn)
 
-    table.add_row("🥈 Silver (XAG/USD)",str(commodities["rates"]["XAG"]),silver_pctn)
+    table.add_row("🥈 Silver (XAG/USD)",f"{(commodities["rates"]["XAG"]):,.2f}",silver_pctn)
 
-    table.add_row("🛢️ Crude Oil",str(commodities["rates"]["WTIOIL-FUT"]),oil_pctn)
+    table.add_row("🛢️ Crude Oil (CL/USD)",f"{(commodities["rates"]["WTIOIL-FUT"]):,.2f}",oil_pctn)
 
-    table.add_row("🔥 Natural Gas",str(latest["value"]),naturalgas_pctn)
+    table.add_row("🔥 Natural Gas (NATGAS)",f"{(latest["value"]):,.2f}",naturalgas_pctn)
 
-    table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):.2f}","N/A")
+    table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):,.2f}","N/A")
 
-    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):.2f}","N/A")
+    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
 
     console.print(table)
 
