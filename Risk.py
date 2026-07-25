@@ -79,7 +79,7 @@ def risk():
     elif values.naturalgas_pct >0.5 and values.naturalgas_pct <=1.5:
             score+=-1*3
             reasons.append("🔴 Gas prices remain inflationary.")
-    elif values.naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
+    elif values.naturalgas_pct >-0.5 and values.naturalgas_pct <=0.5:
             score+=0*3
             reasons.append("⚪ Natural gas is stable.")
     elif values.naturalgas_pct >-1.5 and values.naturalgas_pct <=-0.5:
