@@ -1,35 +1,31 @@
-from values import  gold_pct 
-from values import silver_pct
-from values import oil_pct
-from values import naturalgas_pct
 
-from percentage import USD_pct
-from percentage import EUR_pct
-from percentage import JPY_pct
-from percentage import GBP_pct
-from percentage import CNY_pct
-from percentage import AUD_pct
 
+from rich.console import Console
+from rich.table import Table
+from rich import box
+
+import percentage
 import markets
+import values
 def risk():
     score=0
 
     reasons=[]
 
 #========================================GOLD====================================================================================#
-    if gold_pct>1.5:
+    if values.gold_pct>1.5:
         score+=3*4*-1
         reasons.append("🔴 Gold is surging — strong safe-haven demand as fear grips markets")
-    elif gold_pct >0.5 and gold_pct <=1.5:
+    elif values.gold_pct >0.5 and values.gold_pct <=1.5:
         score+=2*4*-1
         reasons.append("🔴 Gold is climbing — investors turning cautious")
-    elif gold_pct >-0.5 and gold_pct <=0.5:
+    elif values.gold_pct >-0.5 and values.gold_pct <=0.5:
         score+=0*4
         reasons.append("⚪ Gold is flat — no clear safe-haven signal today")
-    elif gold_pct >-1.5 and gold_pct <=-0.5:
+    elif values.gold_pct >-1.5 and values.gold_pct <=-0.5:
         score+=-2*4*-1
         reasons.append("🟢 Gold is easing — investors growing more confident")
-    elif gold_pct<-1.5:
+    elif values.gold_pct<-1.5:
         score+=-3*4*-1
         reasons.append("🟢 Gold is falling sharply — strong risk appetite, fear has faded")
     else:
@@ -37,19 +33,19 @@ def risk():
 
 #========================================silver====================================================================================#
 
-    if silver_pct>1.5:
+    if values.silver_pct>1.5:
         score+=3*1*1
         reasons.append("🔴 Silver is spiking — safe-haven demand spilling into silver too")
-    elif silver_pct >0.5 and silver_pct <=1.5:
+    elif values.silver_pct >0.5 and values.silver_pct <=1.5:
         score+=2*1*-1
         reasons.append("🔴 Silver is up — modest defensive buying")
-    elif silver_pct >-0.5 and silver_pct <=0.5:
+    elif values.silver_pct >-0.5 and values.silver_pct <=0.5:
         score+=0*1*-1
         reasons.append("⚪ Silver is flat — no strong signal")
-    elif silver_pct >-1.5 and silver_pct <=-0.5:
+    elif values.silver_pct >-1.5 and values.silver_pct <=-0.5:
         score+=-2*1*-1
         reasons.append("🟢 Silver is slipping — risk appetite improving")
-    elif silver_pct<-1.5:
+    elif values.silver_pct<-1.5:
         score+=-3*1*-1
         reasons.append("🟢 Silver is falling sharply — confidence firmly back in risk assets")
     else:
@@ -57,76 +53,76 @@ def risk():
 
 #========================================OIL====================================================================================#
     
-    if oil_pct>1.5:
+    if values.oil_pct>1.5:
         score+=3*3*-1
         reasons.append("🔴 Rising oil prices increases inflation concerns.")
-    elif oil_pct >0.5 and oil_pct <=1.5:
+    elif values.oil_pct >0.5 and values.oil_pct <=1.5:
         score+=2*3*-1
         reasons.append("🔴 Oil is climbing — mild inflation and cost-push pressure building")
-    elif oil_pct >-0.5 and oil_pct <=0.5:
+    elif values.oil_pct >-0.5 and values.oil_pct <=0.5:
         score+=0*3*-1
         reasons.append("⚪ Oil is stable — no inflation signal from energy today")
-    elif oil_pct >-1.5 and oil_pct <=-0.5:
+    elif values.oil_pct >-1.5 and values.oil_pct <=-0.5:
         score+=-2*3*-1
         reasons.append("🟢 Oil is easing — inflation pressure cooling off")
-    elif oil_pct<-1.5:
+    elif values.oil_pct<-1.5:
         score+=-3*3*-1
         reasons.append("🟢 Oil is falling sharply — inflation risk easing, positive for rate outlook")
     else:
         print("Error getting value form oil")
     
 #========================================naturalgas====================================================================================#
-    '''
-    if naturalgas_pct>1.5:
+
+    if values.naturalgas_pct>1.5:
             score+=-1*3
             reasons.append("🔴 Natural gas prices suggest rising energy costs.")
-    elif naturalgas_pct >0.5 and naturalgas_pct <=1.5:
+    elif values.naturalgas_pct >0.5 and values.naturalgas_pct <=1.5:
             score+=-1*3
             reasons.append("🔴 Gas prices remain inflationary.")
-    elif naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
+    elif values.naturalgas_pct >-0.5 and naturalgas_pct <=0.5:
             score+=0*3
             reasons.append("⚪ Natural gas is stable.")
-    elif naturalgas_pct >-1.5 and naturalgas_pct <=-0.5:
+    elif values.naturalgas_pct >-1.5 and values.naturalgas_pct <=-0.5:
             score+=1*3
             reasons.append("🟢 Lower gas prices reduce energy cost pressure.")
-    elif naturalgas_pct<=-1.5:
+    elif values.naturalgas_pct<=-1.5:
             score+=1*3
             reasons.append("🟢 Falling gas supports improving inflation expectations.")
     else:
             print("Error getting value form Natural Gas")
-    '''
+
 #========================================USD====================================================================================#
 
-    if USD_pct >1.5:
+    if percentage.USD_pct >1.5:
         score+=3*3*-1
         reasons.append("🔴 Stronger USD reflects global demand for safety.")
-    elif USD_pct>0.5 and USD_pct <=1.5:
+    elif percentage.USD_pct>0.5 and percentage.USD_pct <=1.5:
         score+=2*3*-1
         reasons.append("🔴 Dollar is strengthening — pressure building on risk assets")
-    elif USD_pct>-0.5 and USD_pct <=0.5:
+    elif percentage.USD_pct>-0.5 and percentage.USD_pct <=0.5:
         score+=0*3*-1
         reasons.append("⚪ Dollar is steady — no major currency signal today")
-    elif USD_pct>-1.5 and  USD_pct <=-0.5:
+    elif percentage.USD_pct>-1.5 and  percentage.USD_pct <=-0.5:
         score+=-2*3*-1
         reasons.append("🟢 Dollar is weakening — easier global liquidity")
-    elif USD_pct <=-1.5:
+    elif percentage.USD_pct <=-1.5:
         score+=-3*3*-1
         reasons.append("🟢 Dollar is falling sharply — strong risk-on tailwind from a weaker dollar")
 #========================================YEN====================================================================================#
 
-    if JPY_pct >1.5:
+    if percentage.JPY_pct >1.5:
         score+=3*2*-1
         reasons.append("🔴 Investors are buying the Japanese Yen for safety.")
-    elif JPY_pct>0.5 and JPY_pct <=1.5:
+    elif percentage.JPY_pct>0.5 and percentage.JPY_pct <=1.5:
         score+=2*2*-1
         reasons.append("🔴 Yen supports Risk OFF.")
-    elif JPY_pct>-0.5 and JPY_pct <=0.5:
+    elif percentage.JPY_pct>-0.5 and percentage.JPY_pct <=0.5:
         score+=0*2*-1
         reasons.append("⚪ Yen is stable.")
-    elif JPY_pct>-1.5 and JPY_pct <=-0.5:
+    elif percentage.JPY_pct>-1.5 and percentage.JPY_pct <=-0.5:
         score+=-2*2*-1
         reasons.append("🟢 Yen weakness supports Risk ON.")
-    elif JPY_pct <=-1.5:
+    elif percentage.JPY_pct <=-1.5:
         score+=-3*2*-1
         reasons.append("🟢 Investors are rotating into risk assets.")
 
@@ -239,6 +235,8 @@ def risk():
 #========================================markets====================================================================================#
    
 #========================================markets====================================================================================#    
+    table=Table(title="📊 TODAY'S MARKET SIGNAL",box=box.DOUBLE_EDGE,style="bold bright_blue")
+    console=Console()
     MarketMood=[]
 
     if score>=+50:
@@ -253,19 +251,19 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
     confidence=round((abs(score)/69)*100,1)
+    finaconfidence=str(f"{confidence:.2f}")
 
-    print("===============================================================")
-    print("📊 TODAY'S MARKET SIGNAL")
-    print("===============================================================")
-    
-    print("Reasons\n------------------------")
+    table.add_column("📝📈  Reasons",style="bold",justify="right")
+
+    finalscore=str(f"{score}")
     for market in MarketMood:
-        print(f"Market Mood : {market}")
-    print(f"Raw Score : {score} / 69")
-    print(f"Confidence : {confidence:.2f}\n")
+        table.add_row("Market Mood :",market)
+    table.add_row("Raw Score :" ,finalscore)
+    table.add_row("Confidence :" ,finaconfidence+"\n")
 
     for reason in reasons:
-        print(f"{reason}")
+        table.add_row(reason+"\n")
 
+    console.print(table)
 if __name__=="__main__":
     risk()
