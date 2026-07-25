@@ -30,8 +30,8 @@ def currency():
 
     from rich.console import Console
     from rich.table import Table
-
-    table=Table(title="🌐 2. GLOBAL CURRENCIES (vs INR)",style="bold")
+    from rich import box
+    table=Table(title="🌐 2. GLOBAL CURRENCIES (vs INR)",box=box.DOUBLE_EDGE,style="bright_blue")
     console=Console()
 
     table.add_column("Pair",style="bold cyan",)

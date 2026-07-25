@@ -29,8 +29,8 @@ def commodity():
 
     from rich.console import Console
     from rich.table import Table
-
-    table=Table(title="🛢️  1. COMMODITIES",style="bold",title_justify="center")
+    from rich import box
+    table=Table(title="🛢️  1. COMMODITIES",box=box.DOUBLE_EDGE,style="bold bright_blue",title_justify="center")
     console=Console()
 
     table.add_column("Asset Price",justify="left",style="cyan")
