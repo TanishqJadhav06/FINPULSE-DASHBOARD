@@ -45,5 +45,6 @@ def currency():
     table.add_row("$💵  AUD/INR",AUDrate,AUD_pctn)
 
     return table
+
 if __name__=="__main__":
     currency()

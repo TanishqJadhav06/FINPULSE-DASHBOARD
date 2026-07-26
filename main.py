@@ -21,7 +21,7 @@ def main():
     row1.add_column(ratio=1)
     row1.add_column(ratio=1)
     row1.add_column(ratio=1)
-    row1.add_row(commodity() , currency() , market())
+    row1.add_row(commodity(), currency(), market())
 
     console.print(row1)
 if __name__ == "__main__":
