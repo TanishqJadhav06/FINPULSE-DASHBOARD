@@ -55,8 +55,8 @@ def last_updated_panel():
 def title_block():
     content = Text(justify="center")
     content.append("📈 FINPULSE V1.0\n", style="bold bright_green")
-    content.append("Personal Macro Intelligence Terminal\n", style="white")
-    content.append("Know the markets. Understand the big picture", style="dodger_blue1")
+    content.append("Personal Macro Intelligence Terminal\n", style="bold white")
+    content.append("\nKnow the markets. Understand the big picture", style="bold dodger_blue1",)
     return content
 def header():
     grid = Table.grid(expand=True)
