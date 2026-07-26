@@ -31,10 +31,10 @@ def currency():
     from rich.console import Console
     from rich.table import Table
     from rich import box
-    table=Table(title="🌐 2. GLOBAL CURRENCIES (vs INR)",box=box.DOUBLE_EDGE,style="bright_blue")
+    table=Table(title="🌐  2. GLOBAL CURRENCIES (vs INR)",style="white")
     console=Console()
 
-    table.add_column("Pair",style="bold cyan",)
+    table.add_column("Pair",style="bold white",)
     table.add_column("Price (INR)",style=" bold white",justify="right")
     table.add_column("Change",style=" bold green",justify="right")
     table.add_row("$💵  USD/INR",usdrate,USD_pctn)
@@ -43,8 +43,7 @@ def currency():
     table.add_row("£💷  GBP/INR",GBPrate,GBP_pctn)
     table.add_row("¥💴  CNY/INR",CNYrate,CNY_pctn)
     table.add_row("$💵  AUD/INR",AUDrate,AUD_pctn)
-    print(f"Last Updated🕒: {currency["date"]}\n")
 
-    console.print(table)
+    return table
 if __name__=="__main__":
     currency()

@@ -30,24 +30,27 @@ def commodity():
     from rich.console import Console
     from rich.table import Table
     from rich import box
-    table=Table(title="🛢️  1. COMMODITIES",box=box.DOUBLE_EDGE,style="bold bright_blue",title_justify="center")
+    from rich.panel import Panel
+    from rich.text import Text
+    content=Text()
+    table=Table(title="🛢️  1. COMMODITIES",style="white",title_justify="center")
     console=Console()
 
-    table.add_column("Asset Price",justify="left",style="cyan")
-    table.add_column("Price (USD)",style="white",justify="right")
-    table.add_column("Change",style="green",justify="right")
+    table.add_column("Asset Price",style="bold white",justify="left")
+    table.add_column("Price (USD)",style="bold white",justify="right")
+    table.add_column("Change",style="bold green",justify="right")
 
     table.add_row("🥇 Gold (XAU/USD)",f"{(commodities["rates"]["XAU"]):,.2f}",gold_pctn)
 
     table.add_row("🥈 Silver (XAG/USD)",f"{(commodities["rates"]["XAG"]):,.2f}",silver_pctn)
 
-    table.add_row("🛢️ Crude Oil (CL/USD)",f"{(commodities["rates"]["WTIOIL-FUT"]):,.2f}",oil_pctn)
+    table.add_row("🛢️  Crude Oil (CL/USD)",f"{(commodities["rates"]["WTIOIL-FUT"]):,.2f}",oil_pctn)
 
     table.add_row("🔥 Natural Gas (NATGAS)",f"{(latest["value"]):,.2f}",naturalgas_pctn)
 
     table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):,.2f}","N/A")
 
-    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
+    table.add_row(f"🌾  Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
 
     console.print(table)
 
