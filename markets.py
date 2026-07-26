@@ -21,7 +21,7 @@ def market():
     from rich.table import Table
     from rich import box
     console=Console()
-    table=Table(title="📊 3. Global MARKETS",style="bold",box=box.DOUBLE_EDGE,border_style="white")
+    table=Table(title="📊 3. Global MARKETS",style="bold white")
 
 
     table.add_column("Index",style="bold cyan")

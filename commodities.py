@@ -50,9 +50,9 @@ def commodity():
 
     table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):,.2f}","N/A")
 
-    table.add_row(f"🌾  Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
+    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
 
-    console.print(table)
+    return table
 
 if __name__=="__main__":
     commodity()
