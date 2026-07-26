@@ -35,7 +35,7 @@ def market():
         nifty_pct=((niftyprice-niftyprev)/niftyprev)*100
         nifty_pctn=(f"{nifty_pct:+.2f}%")
         niftyrate=str(f"{niftyprice:,.2f}")
-        table.add_row(name,niftyrate,nifty_pctn+"\n")
+        table.add_row(name,niftyrate,nifty_pctn)
 
     for name, symbol in {"NASDAQ": "^IXIC"}.items():
         t = yf.Ticker(symbol)
@@ -44,7 +44,7 @@ def market():
         nasdaq_pct=((nasprice-nasprev)/nasprev)*100
         nasdaq_pctn=(f"{nasdaq_pct:+.2f}%")
         nasdaqrate=str(f"{nasprice:,.2f}")
-        table.add_row(name,nasdaqrate,nasdaq_pctn+"\n")
+        table.add_row(name,nasdaqrate,nasdaq_pctn)
 
 
     for name, symbol in {"S&P500": "^GSPC"}.items():
@@ -54,7 +54,7 @@ def market():
         sp500_pct=((sp500price-sp500prev)/sp500prev)*100
         sp500_pctn=(f"{sp500_pct:+.2f}%")
         sp500rate=str(f"{sp500price:,.2f}")
-        table.add_row(name,sp500rate,sp500_pctn+"\n")
+        table.add_row(name,sp500rate,sp500_pctn)
 
 
     for name, symbol in {"DOWJONES": "^DJI"}.items():
@@ -64,7 +64,7 @@ def market():
         dowj_pct=((dowjprice-dowjprev)/dowjprev)*100
         dowj_pctn=(f"{dowj_pct:+.2f}%")
         dowjrate=str(f"{dowjprice:,.2f}")
-        table.add_row(name,dowjrate,dowj_pctn+"\n")
+        table.add_row(name,dowjrate,dowj_pctn)
 
     for name, symbol in {"BANKNIFTY":"^NSEBANK"}.items():
         t = yf.Ticker(symbol)
@@ -73,7 +73,7 @@ def market():
         banknifty_pct=((bankniftyprice-bankniftyprev)/bankniftyprev)*100
         banknifty_pctn=(f"{banknifty_pct:+.2f}%")
         bankniftyrate=str(f"{bankniftyprice:,.2f}")
-        table.add_row(name,bankniftyrate,banknifty_pctn+"\n")
+        table.add_row(name,bankniftyrate,banknifty_pctn)
 
     for name, symbol in {"SENSEX":"^BSESN"}.items():
         t = yf.Ticker(symbol)
@@ -82,7 +82,7 @@ def market():
         sensex_pct=((sensexprice-sensexprev)/sensexprev)*100
         sensex_pctn=(f"{sensex_pct:+.2f}%")
         sensexrate=str(f"{sensexprice:,.2f}")
-        table.add_row(name,sensexrate,sensex_pctn+"\n")
+        table.add_row(name,sensexrate,sensex_pctn)
 
     return table
     
