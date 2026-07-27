@@ -265,6 +265,6 @@ def risk():
     for reason in reasons[0:]:
         table.add_row(reason+"\n")
 
-    console.print(table)
+    return table
 if __name__=="__main__":
     risk()

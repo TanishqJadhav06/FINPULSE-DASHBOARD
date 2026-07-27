@@ -23,10 +23,14 @@ def main():
     row1.add_column(ratio=1)
     row1.add_row(commodity(), currency(),market())
 
+    row2 = Table.grid(expand=True)
+    row2.add_column(ratio=1)
+    row2.add_column(ratio=1)
+    row2.add_row(risk(), news())
+
     console.print(row1)
+    console.print(row2)
 if __name__ == "__main__":
     main()
-news()
-risk()
 
 

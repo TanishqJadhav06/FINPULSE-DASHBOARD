@@ -11,6 +11,7 @@ def news():
     table.add_column("📰  5. TOP MARKET HEADLINES",justify="left")
     for article in data["articles"][1:5]:
         table.add_row(f"● {str(article["title"])}\n")
-    console.print(table)
+
+    return table
 if __name__=="__main__":
     news()
