@@ -102,7 +102,7 @@ def risk():
     elif percentage.USD_pct>-0.5 and percentage.USD_pct <=0.5:
         score+=0*3*-1
         reasons.append("⚪ Dollar is steady — no major currency signal today")
-    elif percentage.USD_pct>-1.5 and  percentage.USD_pct <=-0.5:
+    elif percentage.USD_pct>-1.5 and  percentage.USD_pct <-0.5:
         score+=-2*3*-1
         reasons.append("🟢 Dollar is weakening — easier global liquidity")
     elif percentage.USD_pct <=-1.5:
