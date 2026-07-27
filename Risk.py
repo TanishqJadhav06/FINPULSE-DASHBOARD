@@ -140,10 +140,10 @@ def risk():
     '''
 #========================================CNY====================================================================================#
 #========================================markets====================================================================================#
-    if markets.nifty_pct >1.5:
+    if markets.nifty_pct >=1.5:
         score+=3*4*1
         reasons.append("🟢 NIFTY is surging — strong bullish momentum in Indian equities")
-    elif markets.nifty_pct>0.5 and markets.nifty_pct<=1.5:
+    elif markets.nifty_pct>0.5 and markets.nifty_pct<1.5:
         score+=2*4*1
         reasons.append("🟢 NIFTY is climbing — positive momentum building")
     elif markets.nifty_pct>-0.5 and markets.nifty_pct<=0.5:
