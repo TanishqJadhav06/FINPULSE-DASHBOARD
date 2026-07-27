@@ -8,9 +8,9 @@ def news():
     from rich import box
     console=Console()
     table=Table(box=box.DOUBLE_EDGE,border_style="white")
-    table.add_column("📰  5. TOP MARKET HEADLINES",justify="center")
+    table.add_column("📰  5. TOP MARKET HEADLINES",justify="left")
     for article in data["articles"][1:5]:
-        table.add_row(f"{str(article["title"])}\n")
+        table.add_row(f"● {str(article["title"])}\n")
     console.print(table)
 if __name__=="__main__":
     news()

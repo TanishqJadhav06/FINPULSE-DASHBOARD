@@ -62,7 +62,7 @@ def risk():
     elif values.oil_pct >-0.5 and values.oil_pct <=0.5:
         score+=0*3*-1
         reasons.append("⚪ Oil is stable — no inflation signal from energy today")
-    elif values.oil_pct >-1.5 and values.oil_pct <=-0.5:
+    elif values.oil_pct >-1.5 and values.oil_pct <-0.5:
         score+=-2*3*-1
         reasons.append("🟢 Oil is easing — inflation pressure cooling off")
     elif values.oil_pct<-1.5:
@@ -89,7 +89,7 @@ def risk():
             score+=1*3
             reasons.append("🟢 Falling gas supports improving inflation expectations.")
     else:
-            print("Error getting value form Natural Gas")
+        print("Error getting value form Natural Gas")
 
 #========================================USD====================================================================================#
 
@@ -251,17 +251,18 @@ def risk():
         MarketMood.append("🔴 Strong Risk OFF")
 
     confidence=round((abs(score)/69)*100,1)
-    finaconfidence=str(f"{confidence:.2f}")
+    finaconfidence=str(f"{round(confidence):.1f}%")
 
-    table.add_column("📝📈  Reasons",style="bold",justify="right")
+    table.add_column("📝📈  Reasons",style="bold",justify="left")
+    table.add_column("Overview")
 
     finalscore=str(f"{score}")
     for market in MarketMood:
-        table.add_row("Market Mood :",market)
-    table.add_row("Raw Score :" ,finalscore)
-    table.add_row("Confidence :" ,finaconfidence+"\n")
+        table.add_row("","Market Mood :"+market)
+    table.add_row("","Raw Score :" +finalscore)
+    table.add_row("","Confidence :" +finaconfidence+"\n")
 
-    for reason in reasons:
+    for reason in reasons[0:]:
         table.add_row(reason+"\n")
 
     console.print(table)
