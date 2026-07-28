@@ -44,7 +44,7 @@ def commodity():
 
     table.add_row("🥈 Silver (XAG/USD)",f"{(commodities["rates"]["XAG"]):,.2f}",silver_pctn)
 
-    table.add_row("🥈 Crude Oil (WTI)",f"{(commodities["rates"]["WTIOIL-FUT"]):,.2f}",oil_pctn)
+    table.add_row("⛽ Crude Oil (WTI)",f"{(commodities["rates"]["WTIOIL-FUT"]):,.2f}",oil_pctn)
 
     table.add_row("🔥 Natural Gas",f"{(latest["value"]):,.2f}",naturalgas_pctn)
 

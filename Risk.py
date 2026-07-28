@@ -235,7 +235,7 @@ def risk():
 #========================================markets====================================================================================#
    
 #========================================markets====================================================================================#    
-    table=Table(title="📊 TODAY'S MARKET SIGNAL",box=box.DOUBLE_EDGE,style=" white")
+    table=Table(title="📊  4. TODAY'S MARKET SIGNAL",box=box.DOUBLE_EDGE,style=" white")
     console=Console()
     MarketMood=[]
 
