@@ -7,7 +7,10 @@ dowj_pct=0
 banknifty_pct=0
 sensex_pct=0
 
-
+def fmt_pct(pct):
+    color = "green" if pct >= 0 else "red"
+    arrow = "▲" if pct >= 0 else "▼"
+    return f"[{color}]{arrow} {pct:+.2f}%[/{color}]"
 
 def market():
     global nifty_pct
@@ -24,7 +27,7 @@ def market():
     table=Table(title="📊  3. Global MARKETS",style="bold white")
 
 
-    table.add_column("Index",style="bold cyan")
+    table.add_column("Index",style="bold")
     table.add_column("Value",style="bold white",justify="center")
     table.add_column("Change",style="bold green",justify="right")
 
@@ -33,8 +36,8 @@ def market():
         niftyprice = t.fast_info["lastPrice"]
         niftyprev = t.fast_info["previousClose"]
         nifty_pct=((niftyprice-niftyprev)/niftyprev)*100
-        nifty_pctn=(f"{nifty_pct:+.2f}%")
-        niftyrate=str(f"{niftyprice:,.2f}")
+        nifty_pctn=(fmt_pct(nifty_pct))
+        niftyrate=(f"{niftyprice:,.2f}")
         table.add_row(name,niftyrate,nifty_pctn)
 
     for name, symbol in {"NASDAQ": "^IXIC"}.items():
@@ -42,8 +45,8 @@ def market():
         nasprice = t.fast_info["lastPrice"]
         nasprev = t.fast_info["previousClose"]
         nasdaq_pct=((nasprice-nasprev)/nasprev)*100
-        nasdaq_pctn=(f"{nasdaq_pct:+.2f}%")
-        nasdaqrate=str(f"{nasprice:,.2f}")
+        nasdaq_pctn=(fmt_pct(nasdaq_pct))
+        nasdaqrate=(f"{nasprice:,.2f}")
         table.add_row(name,nasdaqrate,nasdaq_pctn)
 
 
@@ -52,8 +55,8 @@ def market():
         sp500price = t.fast_info["lastPrice"]
         sp500prev = t.fast_info["previousClose"]
         sp500_pct=((sp500price-sp500prev)/sp500prev)*100
-        sp500_pctn=(f"{sp500_pct:+.2f}%")
-        sp500rate=str(f"{sp500price:,.2f}")
+        sp500_pctn=(fmt_pct(sp500_pct))
+        sp500rate=(f"{sp500price:,.2f}")
         table.add_row(name,sp500rate,sp500_pctn)
 
 
@@ -62,8 +65,8 @@ def market():
         dowjprice = t.fast_info["lastPrice"]
         dowjprev = t.fast_info["previousClose"]
         dowj_pct=((dowjprice-dowjprev)/dowjprev)*100
-        dowj_pctn=(f"{dowj_pct:+.2f}%")
-        dowjrate=str(f"{dowjprice:,.2f}")
+        dowj_pctn=(fmt_pct(dowj_pct))
+        dowjrate=(f"{dowjprice:,.2f}")
         table.add_row(name,dowjrate,dowj_pctn)
 
     for name, symbol in {"BANKNIFTY":"^NSEBANK"}.items():
@@ -71,8 +74,8 @@ def market():
         bankniftyprice = t.fast_info["lastPrice"]
         bankniftyprev = t.fast_info["previousClose"]
         banknifty_pct=((bankniftyprice-bankniftyprev)/bankniftyprev)*100
-        banknifty_pctn=(f"{banknifty_pct:+.2f}%")
-        bankniftyrate=str(f"{bankniftyprice:,.2f}")
+        banknifty_pctn=(fmt_pct(banknifty_pct))
+        bankniftyrate=(f"{bankniftyprice:,.2f}")
         table.add_row(name,bankniftyrate,banknifty_pctn)
 
     for name, symbol in {"SENSEX":"^BSESN"}.items():
@@ -80,11 +83,11 @@ def market():
         sensexprice = t.fast_info["lastPrice"]
         sensexprev = t.fast_info["previousClose"]
         sensex_pct=((sensexprice-sensexprev)/sensexprev)*100
-        sensex_pctn=(f"{sensex_pct:+.2f}%")
-        sensexrate=str(f"{sensexprice:,.2f}")
+        sensex_pctn=(fmt_pct(sensex_pct))
+        sensexrate=(f"{sensexprice:,.2f}")
         table.add_row(name,sensexrate,sensex_pctn)
 
-    return table
+    console.print(table)
     
 if __name__=="__main__":
     market()

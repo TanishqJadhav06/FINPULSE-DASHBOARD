@@ -259,10 +259,10 @@ def risk():
     finalscore=str(f"{score}")
     for market in MarketMood:
         table.add_row("","Market Mood :"+market)
-    table.add_row("","Raw Score :" +finalscore)
+
     table.add_row("","Confidence :" +finaconfidence+"\n")
 
-    for reason in reasons[0:]:
+    for reason in reasons:
         table.add_row(reason+"\n")
 
     return table
