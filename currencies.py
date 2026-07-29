@@ -8,15 +8,21 @@ from percentage import CNY_pct
 from percentage import AUD_pct
 
 
+def fmt_pct(pct):
+    color = "green" if pct >= 0 else "red"
+    arrow = "▲" if pct >= 0 else "▼"
+    return f"[{color}]{arrow} {pct:+.2f}%[/{color}]"
+
+
 def currency():
     currency=currency_response.json()
 
-    USD_pctn=str(f"{USD_pct:+.2f}%")
-    EUR_pctn=str(f"{EUR_pct:+.2f}%")
-    JPY_pctn=str(f"{JPY_pct:+.2f}%")
-    GBP_pctn=str(f"{GBP_pct:+.2f}%")
-    CNY_pctn=str(f"{CNY_pct:+.2f}%")
-    AUD_pctn=str(f"{AUD_pct:+.2f}%")
+    USD_pctn=(fmt_pct(USD_pct))
+    EUR_pctn=(fmt_pct(EUR_pct))
+    JPY_pctn=(fmt_pct(JPY_pct))
+    GBP_pctn=(fmt_pct(GBP_pct))
+    CNY_pctn=(fmt_pct(CNY_pct))
+    AUD_pctn=(fmt_pct(AUD_pct))
 
 
     usdrate=str(f"{(currency["rates"]["INR"]):.2f}")
@@ -34,9 +40,9 @@ def currency():
     table=Table(title="🌐  2. GLOBAL CURRENCIES (vs INR)",style="white")
     console=Console()
 
-    table.add_column("Pair",style="bold white",)
+    table.add_column("Pair",style="bold cyan",)
     table.add_column("Price (INR)",style=" bold white",justify="right")
-    table.add_column("Change",style=" bold green",justify="right")
+    table.add_column("Change",style=" bold",justify="right")
     table.add_row("$💵  USD/INR",usdrate,USD_pctn)
     table.add_row("€💶  EUR/INR",Eurorate,EUR_pctn)
     table.add_row("Ұ💴  JPY/INR",JPYrate,JPY_pctn)
@@ -44,7 +50,7 @@ def currency():
     table.add_row("¥💴  CNY/INR",CNYrate,CNY_pctn)
     table.add_row("$💵  AUD/INR",AUDrate,AUD_pctn)
 
-    return table
+    console.print(table)
 
 if __name__=="__main__":
     currency()
