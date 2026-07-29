@@ -27,9 +27,9 @@ def market():
     table=Table(title="📊  3. Global MARKETS",style="bold white")
 
 
-    table.add_column("Index",style="bold")
+    table.add_column("Index",style="bold cyan")
     table.add_column("Value",style="bold white",justify="center")
-    table.add_column("Change",style="bold green",justify="right")
+    table.add_column("Change",style="bold",justify="right")
 
     for name, symbol in {"NIFTY50": "^NSEI"}.items():
         t = yf.Ticker(symbol)
