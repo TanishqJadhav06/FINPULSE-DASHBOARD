@@ -50,7 +50,7 @@ def currency():
     table.add_row("¥💴  CNY/INR",CNYrate,CNY_pctn)
     table.add_row("$💵  AUD/INR",AUDrate,AUD_pctn)
 
-    console.print(table)
+    return table
 
 if __name__=="__main__":
     currency()
