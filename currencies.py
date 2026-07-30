@@ -29,8 +29,8 @@ def currency():
     Eurorate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["EUR"])):.2f}")
     JPYrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["JPY"])):.2f}")
     GBPrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["GBP"])):.2f}")
-    CNYrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["AUD"])):.2f}")
-    AUDrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["CNY"])):.2f}")
+    CNYrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["CNY"])):.2f}")
+    AUDrate=str(f"{currency["rates"]["INR"]/(float(currency["rates"]["AUD"])):.2f}")
 
 
 
