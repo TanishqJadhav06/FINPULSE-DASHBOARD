@@ -54,9 +54,9 @@ def commodity():
 
     table.add_row("🔥 Natural Gas",f"{(latest["value"]):,.2f}",naturalgas_pctn)
 
-    table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):,.2f}","[dim]N/A[/dim]")
+    table.add_row("🌽 Corn (USD/ton)",f"{float(latestwheat['value']):,.2f}","N/A")
 
-    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","[dim]N/A[/dim]")
+    table.add_row(f"🌾 Wheat (USD/ton)",f"{float(latestcorn['value']):,.2f}","N/A")
 
     return table
 
