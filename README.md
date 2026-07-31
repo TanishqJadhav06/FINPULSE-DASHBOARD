@@ -1,145 +1,102 @@
-# 📈 FINPULSE
+# 📈 FINPULSE v1.0
 
-**FINPULSE** is a Python-based financial dashboard that brings together live market information from multiple APIs into one clean command-line interface.
+**Personal Macro Intelligence Terminal**
 
-The project provides real-time data for commodities, currencies, global stock indices, and financial news while also calculating daily percentage changes using historical market data.
+*Know the markets. Understand the big picture.*
 
-This project was built as my CS50P Final Project and continues to evolve with new features.
+FINPULSE is a terminal-based macro dashboard that pulls live commodities, currency, and global index data into a single glanceable screen — then runs it through a weighted scoring engine to tell you whether the market mood is **Risk ON** or **Risk OFF**, with a confidence score and plain-English reasoning behind every call.
 
----
-
-## Features
-
-### 🏅 Commodities
-
-- Gold
-- Silver
-- Crude Oil
-- Natural Gas
-- Corn
-- Wheat
-
-Displays:
-
-- Current Price
-- Daily Percentage Change (implemented for supported assets)
+Built entirely in Python with [Rich](https://github.com/Textualize/rich) for the terminal UI — no web server, no browser, just a live-refreshing console dashboard.
 
 ---
 
-### 🌍 Global Currencies
+## What it does
 
-Track major currency pairs such as:
+| Panel | What's in it |
+|---|---|
+| 🛢️ **Commodities** | Gold, Silver, Crude Oil (WTI), Natural Gas, Corn, Wheat — price + 1-day % change |
+| 🌐 **Global Currencies** | USD, EUR, JPY, GBP, CNY, AUD — all quoted against INR |
+| 📊 **Global Markets** | NIFTY50, NASDAQ, S&P500, DOWJONES, BANKNIFTY, SENSEX |
+| 🎯 **Market Signal** | A weighted Risk ON / Risk OFF call, with a confidence % and the reasoning behind it |
+| 🗞️ **Top Headlines** | Latest business headlines, pulled live |
 
-- USD/INR
-- EUR/INR
-- GBP/INR
-- JPY/INR
-
-Displays:
-
-- Live Exchange Rate
-- Daily Percentage Change
+Everything renders as a set of bordered panels laid out in a responsive grid — resize your terminal and the layout stretches with it.
 
 ---
 
-### 📊 Global Markets
+## How the Risk Signal works
 
-Live data for major indices including:
+FINPULSE scores nine macro signals — Gold, Silver, Crude Oil, Natural Gas, USD/INR, JPY, NIFTY50, NASDAQ, and S&P500 — each on a five-tier scale (strong move down → flat → strong move up), weighted by how much that asset typically matters to risk sentiment.
 
-- NIFTY 50
-- SENSEX
-- BANKNIFTY
-- NASDAQ
-- S&P 500
-- Dow Jones
+The signals are summed into a raw score, which maps to:
 
----
+- 🟢 **Strong Risk ON** / **Risk ON**
+- ⚪ **Neutral**
+- 🔴 **Risk OFF** / **Strong Risk OFF**
 
-### 📰 Financial News
-
-Displays the latest market-related headlines from trusted news APIs.
+A confidence percentage (`|score| ÷ max possible score × 100`) tells you how strong the signal is, and every contributing reason — e.g. *"Gold is climbing — investors turning cautious"* — is listed so the call is never a black box.
 
 ---
 
-### 📈 Percentage Change Engine
+## Tech stack
 
-FINPULSE compares today's live market price with historical market data to calculate daily percentage changes.
+- **Python 3.12**
+- [`rich`](https://github.com/Textualize/rich) — all terminal rendering (tables, panels, grids, color)
+- [`yfinance`](https://github.com/ranaroussi/yfinance) — live index data (NIFTY, NASDAQ, S&P500, etc.)
+- [`requests`](https://docs.python-requests.org/) — REST calls to commodity/currency/news APIs
+- [`python-dotenv`](https://github.com/theskumar/python-dotenv) — API keys loaded from a local `.env`, never hardcoded
+
+**Data sources:**
+- [CommodityPriceAPI](https://commoditypriceapi.com/) — Gold, Silver, Crude Oil
+- [EODHD](https://eodhd.com/) — Natural Gas
+- [Alpha Vantage](https://www.alphavantage.co/) — Corn, Wheat
+- [Frankfurter](https://frankfurter.dev/) — Currency exchange rates (no key required)
+- [NewsAPI](https://newsapi.org/) — Top business headlines
+- `yfinance` — Global and Indian index prices
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
-FINPULSE
-│
-├── main.py
-├── commodities.py
-├── currencies.py
-├── markets.py
-├── news.py
-├── percentage.py
-├── values.py
-├── config.py
-│
-├── README.md
-├── requirements.txt
-└── .gitignore
+FINPULSE/
+├── main.py            # Entry point — assembles the grid, prints the dashboard
+├── header.py           # Date/time, title block, "last updated" panel
+├── commodities.py       # Gold, Silver, Oil, Natural Gas, Corn, Wheat panel
+├── currencies.py        # USD/EUR/JPY/GBP/CNY/AUD vs INR panel
+├── markets.py           # Global & Indian index panel
+├── Risk.py              # Weighted scoring engine — Risk ON/OFF + reasons
+├── news.py              # Top market headlines panel
+├── config.py             # All API calls and environment setup
+├── values.py             # % change calculations for commodities
+├── percentage.py          # % change calculations for currencies
+└── .env                  # API keys (not committed)
 ```
 
----
-
-## Technologies Used
-
-- Python
-- Requests
-- JSON
-- Datetime
-- Multiple Financial APIs
-- Yahoo Finance (yfinance)
+Fetch logic and Rich rendering are kept separate throughout — each panel module returns a renderable `Table`/`Panel` object; `main.py` is the only file that decides layout and prints to the console.
 
 ---
 
-## Future Features
+## Setup
 
-- Rich Terminal UI
-- SQLite Database
-- Market Risk Engine
-- Market Summary
-- Telegram Bot
-- Portfolio Tracking
-- Charts and Data Visualization
-
----
-
-## Installation
-
-Clone the repository
+1. Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/FINPULSE.git
+git clone https://github.com/TanishqJadhav06/FINPULSE-DASHBOARD.git
+cd FINPULSE-DASHBOARD
+pip install rich requests yfinance python-dotenv
 ```
 
-Move into the project folder
+2. Create a `.env` file in the project root with your API keys:
 
-```bash
-cd FINPULSE
+```
+COMMODITY_API_KEY=your_key_here
+ALPHAVANTAGE_API_KEY=your_key_here
+NEWSAPI_KEY=your_key_here
+API_TOKEN=your_eodhd_token_here
 ```
 
-Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Create a `.env` file
-
-```text
-API_KEY=YOUR_API_KEY
-NEWS_API_KEY=YOUR_KEY
-TWELVE_DATA_KEY=YOUR_KEY
-```
-
-Run the project
+3. Run it:
 
 ```bash
 python main.py
@@ -147,67 +104,19 @@ python main.py
 
 ---
 
-## Example Output
-
-```
-===============================
-        FINPULSE
-===============================
-
-🏅 Commodities
-
-Gold ............ 4123.72 (+1.46%)
-Silver .......... 60.14 (+3.90%)
-Crude Oil ....... 76.61 (+0.03%)
-
-🌍 Global Currencies
-
-USD/INR ......... 85.52 (+0.12%)
-EUR/INR ......... 100.08 (-0.22%)
-
-📊 Global Markets
-
-NIFTY50 ......... +0.52%
-NASDAQ .......... -0.17%
-
-📰 Top Headlines
-
-• Headline 1
-• Headline 2
-• Headline 3
-```
-
----
-
-## Learning Outcomes
-
-Building FINPULSE helped me learn:
-
-- Working with REST APIs
-- Parsing JSON data
-- Modular Python architecture
-- Error handling
-- Historical market data
-- Financial data processing
-- Project organization
-- Real-world software development
-
----
-
 ## Roadmap
 
-- [x] Live Commodities
-- [x] Commodity Percentage Changes
-- [x] Live Currency Rates
-- [x] Currency Percentage Changes
-- [x] Global Markets
-- [x] Financial News
-- [ ] Risk Engine
-- [ ] Market Summary
-- [ ] SQLite Integration
-- [ ] Rich Dashboard
-- [ ] Telegram Bot
+- [ ] SQLite persistence (`data/market.db`) — store historical snapshots for trend tracking
+- [ ] True 7-day sparkline trends per asset (currently price + 1-day change only)
+- [ ] Auto-refresh loop instead of manual re-run
+- [ ] `[R] Refresh` / `[H] History` / `[S] Save` keyboard shortcuts
 
 ---
 
-Made with ❤️ using Python.
+## Author
+
+Built by **[TanishqJadhav06](https://github.com/TanishqJadhav06)** — a personal project to combine a Python CLI habit with an interest in macro markets and fintech.
+
+---
+
+*FINPULSE v1.0 — released July 31, 2026.*
