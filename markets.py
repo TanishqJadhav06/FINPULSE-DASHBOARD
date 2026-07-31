@@ -87,7 +87,7 @@ def market():
         sensexrate=(f"{sensexprice:,.2f}")
         table.add_row(name,sensexrate,sensex_pctn)
 
-    console.print(table)
+    return table
     
 if __name__=="__main__":
     market()
