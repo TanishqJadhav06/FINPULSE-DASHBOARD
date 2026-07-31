@@ -8,7 +8,9 @@ FINPULSE is a terminal-based macro dashboard that pulls live commodities, curren
 
 Built entirely in Python with [Rich](https://github.com/Textualize/rich) for the terminal UI — no web server, no browser, just a live-refreshing console dashboard.
 
----
+---<img width="1295" height="608" alt="FinpulseIMG-1" src="https://github.com/user-attachments/assets/06fc853d-dc14-44f9-a76e-41d41a402689" />
+<img width="1289" height="628" alt="FinpulseIMG-2" src="https://github.com/user-attachments/assets/52f427eb-3b17-49dc-9a3a-38866571273c" />
+
 
 ## What it does
 
