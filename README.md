@@ -8,8 +8,9 @@ FINPULSE is a terminal-based macro dashboard that pulls live commodities, curren
 
 Built entirely in Python with [Rich](https://github.com/Textualize/rich) for the terminal UI — no web server, no browser, just a live-refreshing console dashboard.
 
----<img width="1295" height="608" alt="FinpulseIMG-1" src="https://github.com/user-attachments/assets/06fc853d-dc14-44f9-a76e-41d41a402689" />
-<img width="1289" height="628" alt="FinpulseIMG-2" src="https://github.com/user-attachments/assets/52f427eb-3b17-49dc-9a3a-38866571273c" />
+<img width="1289" height="611" alt="FinpulseIMG-11" src="https://github.com/user-attachments/assets/06617aa3-c5d0-463d-9e9f-be283c245d52" />
+<img width="1292" height="612" alt="FinpulseIMG-12" src="https://github.com/user-attachments/assets/97e4fa74-c22d-463c-a1dd-f94e6be40704" />
+
 
 
 ## What it does
@@ -37,6 +38,7 @@ The signals are summed into a raw score, which maps to:
 - 🔴 **Risk OFF** / **Strong Risk OFF**
 
 A confidence percentage (`|score| ÷ max possible score × 100`) tells you how strong the signal is, and every contributing reason — e.g. *"Gold is climbing — investors turning cautious"* — is listed so the call is never a black box.
+<img width="649" height="479" alt="risk" src="https://github.com/user-attachments/assets/ef3bb0a0-58e4-415b-89fd-9d0a18a18e08" />
 
 ---
 
