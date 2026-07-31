@@ -28,7 +28,7 @@ def market():
 
 
     table.add_column("Index",style="bold cyan")
-    table.add_column("Value",style="bold white",justify="center")
+    table.add_column("Value",justify="right",style="bold white")
     table.add_column("Change",style="bold",justify="right")
 
     for name, symbol in {"NIFTY50": "^NSEI"}.items():
@@ -87,7 +87,7 @@ def market():
         sensexrate=(f"{sensexprice:,.2f}")
         table.add_row(name,sensexrate,sensex_pctn)
 
-    return table
+    console.print(table)
     
 if __name__=="__main__":
     market()
