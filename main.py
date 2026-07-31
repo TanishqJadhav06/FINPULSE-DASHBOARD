@@ -16,6 +16,7 @@ from rich.table import Table
 console = Console()
 
 def main():
+#prints the head of the finpulse time and last updated  panel. 
     console.print(header())
     row1 = Table.grid(expand=True)
     row1.add_column(ratio=1)
